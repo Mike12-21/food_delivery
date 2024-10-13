@@ -1,9 +1,12 @@
+// ignore_for_file: use_build_context_synchronously
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:food_delivery/components/my_button.dart';
 import 'package:food_delivery/components/my_textfield.dart';
+import 'package:food_delivery/services/auth/auth_services.dart';
 
-import 'home_page.dart';
+
 
 class LoginPage extends StatefulWidget {
   final void Function()? onTap;
@@ -18,14 +21,33 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
-  final TextEditingController emailcontroller = TextEditingController();
-  final TextEditingController passwordcontroller = TextEditingController();
+  final emailcontroller = TextEditingController();
+  final passwordcontroller = TextEditingController();
 
-  void login() {
+  void login() async {
     // Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage(),))
-    Navigator.push(
-      context,
-      MaterialPageRoute(builder: (context) => const HomePage()),
+
+    final _authService = AuthService();
+    //try sign in
+    try {
+      await _authService.signInWithEmailPassword(emailcontroller.text, passwordcontroller.text);
+    } catch (e) {
+    //display any errors
+       showDialog(
+            context: context,
+            builder: (context) => AlertDialog(
+                  title: Text(e.toString()),
+                ));
+    }
+  }
+
+  void forgotPw() {
+    showDialog(
+      context: context,
+      builder: (context) => AlertDialog(
+        backgroundColor: Theme.of(context).colorScheme.background,
+        title: const Text("User tapped forgot password"),
+      ),
     );
   }
 

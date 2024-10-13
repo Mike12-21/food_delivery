@@ -1,6 +1,7 @@
 import 'package:collection/collection.dart';
 import 'package:flutter/material.dart';
 import 'package:food_delivery/models/cart_item.dart';
+import 'package:intl/intl.dart';
 
 import 'food.dart';
 
@@ -11,9 +12,9 @@ class Restaurant extends ChangeNotifier {
       name: 'Cheese Burger',
       description:
           'A juicy beef patty topped with melted cheese, nestled in a toasted bun with crisp lettuce and tangy pickles.',
-      imagePath: 'lib/images/burgers/cheeseburger1.png',
+      imagePath: 'lib/images/burgers/cheeseburger12.png',
       price: 250,
-      category: FoodCategory.burgers,
+      category: FoodCategory.Burgers,
       availableAddons: [
         Addon(name: 'Extra cheese', price: 50),
         Addon(name: 'Ketchup', price: 30.0)
@@ -25,7 +26,7 @@ class Restaurant extends ChangeNotifier {
           'A succulent grilled chicken breast sandwiched between soft buns with crisp lettuce, ripe tomatoes, and creamy mayo.',
       imagePath: 'lib/images/burgers/chickenburgerr.png',
       price: 250,
-      category: FoodCategory.burgers,
+      category: FoodCategory.Burgers,
       availableAddons: [
         Addon(name: 'Extra cheese', price: 50),
         Addon(name: 'Ketchup', price: 30.0)
@@ -35,9 +36,9 @@ class Restaurant extends ChangeNotifier {
       name: 'Double Burger',
       description:
           'Two juicy beef patties stacked with melted cheese, crispy bacon, fresh lettuce, and tangy pickles on a toasted sesame seed bun.',
-      imagePath: 'lib/images/burgers/cheeseburger1.png',
+      imagePath: 'lib/images/burgers/doubleburgerr.png',
       price: 250,
-      category: FoodCategory.burgers,
+      category: FoodCategory.Burgers,
       availableAddons: [
         Addon(name: 'Extra cheese', price: 50),
         Addon(name: 'Ketchup', price: 30.0)
@@ -47,9 +48,9 @@ class Restaurant extends ChangeNotifier {
       name: 'Special Burger',
       description:
           'An Ethiopian-inspired special burger with a berbere-spiced lamb patty, creamy niter kibbeh aioli, pickled vegetables, and a spicy mitmita sauce on a teff flour bun, capturing the flavors of Ethiopia.',
-      imagePath: 'lib/images/burgers/specialburger.png',
+      imagePath: 'lib/images/burgers/specialburgerr.png',
       price: 250,
-      category: FoodCategory.burgers,
+      category: FoodCategory.Burgers,
       availableAddons: [
         Addon(name: 'Extra cheese', price: 50.0),
         Addon(name: 'Ketchup', price: 30.0)
@@ -61,7 +62,7 @@ class Restaurant extends ChangeNotifier {
           'A smoky BBQ burger featuring a flame-grilled patty, topped with caramelized onions, melted cheddar cheese, and a drizzle of tangy barbecue sauce.',
       imagePath: 'lib/images/burgers/bbqburger1.png',
       price: 250,
-      category: FoodCategory.burgers,
+      category: FoodCategory.Burgers,
       availableAddons: [
         Addon(name: 'Extra cheese', price: 50.0),
         Addon(name: 'Grilled onion', price: 40.0)
@@ -74,7 +75,7 @@ class Restaurant extends ChangeNotifier {
           'A rich chocolate cake layered with whipped cream, cherries, and dark chocolate shavings.',
       imagePath: 'lib/images/desserts/blackforest.png',
       price: 250,
-      category: FoodCategory.desserts,
+      category: FoodCategory.Desserts,
       availableAddons: [
         Addon(name: 'Extra cheese', price: 50),
         Addon(name: 'Ketchup', price: 30.0)
@@ -84,9 +85,9 @@ class Restaurant extends ChangeNotifier {
       name: 'Chocolate cake',
       description:
           'A moist and decadent chocolate cake layered with rich chocolate frosting.',
-      imagePath: 'lib/images/desserts/chocolatecake.png',
+      imagePath: 'lib/images/desserts/chocolatecake1.png',
       price: 250,
-      category: FoodCategory.desserts,
+      category: FoodCategory.Desserts,
       availableAddons: [
         Addon(name: 'whipped creame', price: 50),
       ],
@@ -95,9 +96,9 @@ class Restaurant extends ChangeNotifier {
       name: 'Cupcake',
       description:
           'A single-serving, frosted mini cake baked in a paper cup, often topped with decorative icing or sprinkles.',
-      imagePath: 'lib/images/desserts/cupcake.png',
+      imagePath: 'lib/images/desserts/cupcake1.png',
       price: 250,
-      category: FoodCategory.desserts,
+      category: FoodCategory.Desserts,
       availableAddons: [
         Addon(name: 'whipped creame', price: 50),
       ],
@@ -106,9 +107,9 @@ class Restaurant extends ChangeNotifier {
       name: 'Donut',
       description:
           'A golden, fried ring of dough, often glazed or filled with various sweet toppings or creams.',
-      imagePath: 'lib/images/desserts/donut1.png',
+      imagePath: 'lib/images/desserts/donut12.png',
       price: 250,
-      category: FoodCategory.desserts,
+      category: FoodCategory.Desserts,
       availableAddons: [
         Addon(name: 'whipped creame', price: 50),
       ],
@@ -119,7 +120,7 @@ class Restaurant extends ChangeNotifier {
           'A classic cake with layers of vanilla sponge, whipped cream, cherries, and white chocolate.',
       imagePath: 'lib/images/desserts/whiteforest.png',
       price: 250,
-      category: FoodCategory.desserts,
+      category: FoodCategory.Desserts,
       availableAddons: [
         Addon(name: 'whipped creame', price: 50),
       ],
@@ -129,9 +130,9 @@ class Restaurant extends ChangeNotifier {
       name: 'Boba tea',
       description:
           'A refreshing Filipino-inspired drink combining the flavors of traditional boba tea with tropical hints like coconut or mango.',
-      imagePath: 'lib/images/drinks/bobatea.png',
+      imagePath: 'lib/images/drinks/bobatea1.png',
       price: 250,
-      category: FoodCategory.drinks,
+      category: FoodCategory.Drinks,
       availableAddons: [
         Addon(name: ' Extra boba', price: 30),
         Addon(name: ' whipped creame', price: 30),
@@ -141,9 +142,9 @@ class Restaurant extends ChangeNotifier {
       name: 'Iced tea',
       description:
           'A chilled tea beverage sweetened and served with ice, offering a refreshing and flavorful drink option.',
-      imagePath: 'lib/images/drinks/iced tea.png',
+      imagePath: 'lib/images/drinks/iced tea1.png',
       price: 250,
-      category: FoodCategory.drinks,
+      category: FoodCategory.Drinks,
       availableAddons: [
         Addon(name: 'whipped creame', price: 30),
       ],
@@ -154,7 +155,7 @@ class Restaurant extends ChangeNotifier {
           'Chilled coffee served over ice, providing a cool and caffeinated pick-me-up.',
       imagePath: 'lib/images/drinks/icedcoffee.png',
       price: 250,
-      category: FoodCategory.drinks,
+      category: FoodCategory.Drinks,
       availableAddons: [
         Addon(name: 'whipped creame', price: 30),
       ],
@@ -165,7 +166,7 @@ class Restaurant extends ChangeNotifier {
           'A carbonated soft drink with a sweet and fizzy flavor, known for its iconic red label and refreshing taste.',
       imagePath: 'lib/images/drinks/cocacola.png',
       price: 250,
-      category: FoodCategory.drinks,
+      category: FoodCategory.Drinks,
       availableAddons: [
         Addon(name: '----', price: 0),
       ],
@@ -174,9 +175,9 @@ class Restaurant extends ChangeNotifier {
       name: 'Softdrinks',
       description:
           'Carbonated beverages typically sweetened with sugar or artificial sweeteners, offering a wide range of flavors and refreshment.',
-      imagePath: 'lib/images/drinks/softdrinks.png',
+      imagePath: 'lib/images/drinks/softdrinks1.png',
       price: 250,
-      category: FoodCategory.drinks,
+      category: FoodCategory.Drinks,
       availableAddons: [
         Addon(name: '----', price: 0),
       ],
@@ -186,9 +187,9 @@ class Restaurant extends ChangeNotifier {
       name: 'Doro wot',
       description:
           'Carbonated beverages typically sweetened with sugar or artificial sweeteners, offering a wide range of flavors and refreshment.',
-      imagePath: 'lib/images/localfoods/dorowot.jpg',
+      imagePath: 'lib/images/localfoods/dorowot1.jpg',
       price: 250,
-      category: FoodCategory.localFoods,
+      category: FoodCategory.LocalFoods,
       availableAddons: [
         Addon(name: 'injera kurt 4 pcs', price: 30.0),
       ],
@@ -197,9 +198,9 @@ class Restaurant extends ChangeNotifier {
       name: 'Ye Fisek beyaynet',
       description:
           'Carbonated beverages typically sweetened with sugar or artificial sweeteners, offering a wide range of flavors and refreshment.',
-      imagePath: 'lib/images/localfoods/fisekbeyaynet.jpg',
+      imagePath: 'lib/images/localfoods/fisekbeyaynet1.jpg',
       price: 250,
-      category: FoodCategory.localFoods,
+      category: FoodCategory.LocalFoods,
       availableAddons: [
         Addon(name: 'injera kurt 4 pcs', price: 30.0),
       ],
@@ -208,9 +209,9 @@ class Restaurant extends ChangeNotifier {
       name: 'Kitfo',
       description:
           'Carbonated beverages typically sweetened with sugar or artificial sweeteners, offering a wide range of flavors and refreshment.',
-      imagePath: 'lib/images/localfoods/kitfo.jpg',
+      imagePath: 'lib/images/localfoods/kitfo1.jpg',
       price: 250,
-      category: FoodCategory.localFoods,
+      category: FoodCategory.LocalFoods,
       availableAddons: [
         Addon(name: 'injera kurt 4 pcs', price: 30.0),
       ],
@@ -219,9 +220,9 @@ class Restaurant extends ChangeNotifier {
       name: 'Tibs',
       description:
           'Carbonated beverages typically sweetened with sugar or artificial sweeteners, offering a wide range of flavors and refreshment.',
-      imagePath: 'lib/images/localfoods/tibs.jpg',
+      imagePath: 'lib/images/localfoods/tibs1.jpg',
       price: 250,
-      category: FoodCategory.localFoods,
+      category: FoodCategory.LocalFoods,
       availableAddons: [
         Addon(name: 'injera kurt 4 pcs', price: 30.0),
       ],
@@ -230,9 +231,9 @@ class Restaurant extends ChangeNotifier {
       name: 'Ye Tsom beyaynet',
       description:
           'Carbonated beverages typically sweetened with sugar or artificial sweeteners, offering a wide range of flavors and refreshment.',
-      imagePath: 'lib/images/localfoods/yetsombeyaynet.jpg',
+      imagePath: 'lib/images/localfoods/yetsombeyaynet1.jpg',
       price: 250,
-      category: FoodCategory.localFoods,
+      category: FoodCategory.LocalFoods,
       availableAddons: [
         Addon(name: 'injera kurt 4 pcs', price: 30.0),
       ],
@@ -242,9 +243,9 @@ class Restaurant extends ChangeNotifier {
       name: 'Chopped Salad',
       description:
           'Carbonated beverages typically sweetened with sugar or artificial sweeteners, offering a wide range of flavors and refreshment.',
-      imagePath: 'lib/images/salads/chopped salad.png',
+      imagePath: 'lib/images/salads/choppedsalad1.png',
       price: 250,
-      category: FoodCategory.salads,
+      category: FoodCategory.Salads,
       availableAddons: [
         Addon(name: '----', price: 0),
       ],
@@ -255,7 +256,7 @@ class Restaurant extends ChangeNotifier {
           'Carbonated beverages typically sweetened with sugar or artificial sweeteners, offering a wide range of flavors and refreshment.',
       imagePath: 'lib/images/salads/fruitsalad.png',
       price: 250,
-      category: FoodCategory.salads,
+      category: FoodCategory.Salads,
       availableAddons: [
         Addon(name: '---', price: 0),
       ],
@@ -266,7 +267,7 @@ class Restaurant extends ChangeNotifier {
           'Carbonated beverages typically sweetened with sugar or artificial sweeteners, offering a wide range of flavors and refreshment.',
       imagePath: 'lib/images/salads/grainsalad.png',
       price: 250,
-      category: FoodCategory.salads,
+      category: FoodCategory.Salads,
       availableAddons: [
         Addon(name: '----', price: 0),
       ],
@@ -275,9 +276,9 @@ class Restaurant extends ChangeNotifier {
       name: 'Pasta Salad',
       description:
           'Carbonated beverages typically sweetened with sugar or artificial sweeteners, offering a wide range of flavors and refreshment.',
-      imagePath: 'lib/images/salads/pastasalad.png',
+      imagePath: 'lib/images/salads/pastasalad1.png',
       price: 250,
-      category: FoodCategory.salads,
+      category: FoodCategory.Salads,
       availableAddons: [
         Addon(name: '----', price: 30.0),
       ],
@@ -286,23 +287,27 @@ class Restaurant extends ChangeNotifier {
       name: 'Potato Salad',
       description:
           'Carbonated beverages typically sweetened with sugar or artificial sweeteners, offering a wide range of flavors and refreshment.',
-      imagePath: 'lib/images/salads/potatosalad.png',
+      imagePath: 'lib/images/salads/potatosalad1.png',
       price: 250,
-      category: FoodCategory.salads,
+      category: FoodCategory.Salads,
       availableAddons: [
         Addon(name: '---', price: 0),
       ],
     ),
   ];
 
+  //user cart
+  final List<CartItem> _cart = [];
+  //delivery address(user can change and update)
+  String _deliveryAddress = 'Addis Ababa, Kirkos, Gotera';
+
   //GETTERS
 
   List<Food> get menu => _menu;
   List<CartItem> get cart => _cart;
+  String get deliveryAddress => _deliveryAddress;
 
   // OPERATIONS
-  //user cart
-  final List<CartItem> _cart = [];
   // add to cart+
   void addToCart(Food food, List<Addon> selectedAddon) {
     CartItem? cartItem = _cart.firstWhereOrNull((item) {
@@ -370,8 +375,54 @@ class Restaurant extends ChangeNotifier {
     _cart.clear();
     notifyListeners();
   }
+
+  //update delivery address
+  void updateDeliveryAddress(String newAddress) {
+    _deliveryAddress = newAddress;
+    notifyListeners();
+  }
+
   //HELPERS
   // generate a reciept
+  String displayCartReciept() {
+    final reciept = StringBuffer();
+    reciept.writeln("Here is your reciept");
+    reciept.writeln();
+    //format date include upto seconds only
+    String formattedDate =
+        DateFormat('yyyy-MM-dd  HH:mm:ss').format(DateTime.now());
+    reciept.writeln(formattedDate);
+    reciept.writeln();
+    reciept.writeln('-------');
+
+    for (final cartItem in cart) {
+      reciept.writeln(
+          "${cartItem.quantity} x ${cartItem.food.name} - ${_formatPrice(cartItem.food.price)}");
+
+      if (cartItem.selectedAddons.isNotEmpty) {
+        reciept.writeln(" Add-ons:${_formatAddons(cartItem.selectedAddons)}");
+      }
+      reciept.writeln();
+    }
+    reciept.writeln("--------------");
+    reciept.writeln();
+    reciept.writeln("Total Items: ${getTotalItemCount()}");
+    reciept.writeln("Total Price: ${_formatPrice(getTotalPrice())}");
+    reciept.writeln();
+    reciept.writeln("Delivering to: $deliveryAddress");
+
+    return reciept.toString();
+  }
+
   // format double value into money
+  String _formatPrice(double price) {
+    return 'ETB ${price.toStringAsFixed(2)}';
+  }
+
   // format list of addons into a string summary
+  String _formatAddons(List<Addon> addons) {
+    return addons
+        .map((addon) => "${addon.name} (${_formatPrice(addon.price)})")
+        .join(", ");
+  }
 }
