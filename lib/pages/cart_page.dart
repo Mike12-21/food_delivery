@@ -3,6 +3,7 @@ import 'package:flutter/widgets.dart';
 import 'package:food_delivery/components/my_button.dart';
 import 'package:food_delivery/components/my_cart_tile.dart';
 import 'package:food_delivery/models/restaurant.dart';
+import 'package:food_delivery/pages/delivery_progress_page.dart';
 import 'package:food_delivery/pages/payment_page.dart';
 import 'package:provider/provider.dart';
 
@@ -74,6 +75,18 @@ class CartPage extends StatelessWidget {
                           ),
                   ],
                 ),
+              ),
+              MyButton(
+                text: 'Pay on delivery',
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DeliveryProgressPage(),
+                  ),
+                ),
+              ),
+              const SizedBox(
+                height: 15,
               ),
               //button to pay
               MyButton(

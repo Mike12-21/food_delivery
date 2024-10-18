@@ -22,32 +22,56 @@ class _RegisterPageState extends State<RegisterPage> {
   final passwordcontroller = TextEditingController();
   final confirmpasswordcontroller = TextEditingController();
 
+  // RegEx for password validation (1 letter, 1 number, 1 symbol)
+  final RegExp passwordRegEx = RegExp(
+    r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$',
+  );
+
+  // Function to check if the password is valid
+  bool isValidPassword(String password) {
+    return passwordRegEx.hasMatch(password);
+  }
+
   void register() async {
-    //get auth service
     final _authService = AuthService();
 
-    //check if password match with create user
-    if (passwordcontroller.text == confirmpasswordcontroller.text) {
-      try {
-        await _authService.signUpWithEmailPassword(
-            emailcontroller.text, passwordcontroller.text);
-      } catch (e) {
-        showDialog(
-            context: context,
-            builder: (context) => AlertDialog(
-                  title: Text(e.toString()),
-                ));
-      }
+    // Check if passwords match
+    if (passwordcontroller.text != confirmpasswordcontroller.text) {
+      showDialog(
+        context: context,
+        builder: (context) => const AlertDialog(
+          title: Text("Passwords don't match"),
+        ),
+      );
+      return;
     }
 
-    //if passwords dont match show error
-
-    else {
+    // Check if the password is valid
+    if (!isValidPassword(passwordcontroller.text)) {
       showDialog(
-          context: context,
-          builder: (context) => const AlertDialog(
-                title: Text("Password don't match"),
-              ));
+        context: context,
+        builder: (context) => const AlertDialog(
+          title: Text('Invalid Password'),
+          content: Text(
+              'Password must contain at least 1 letter, 1 number, and 1 symbol. length of password must not be less than 8'),
+        ),
+      );
+      return;
+    }
+
+    // Try to register if password is valid and matches
+    try {
+      await _authService.signUpWithEmailPassword(
+        emailcontroller.text,
+        passwordcontroller.text,
+      );
+    } catch (e) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(e.toString()),
+        ),
+      );
     }
   }
 
@@ -62,7 +86,7 @@ class _RegisterPageState extends State<RegisterPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Icon(
-                  Icons.lock_open_rounded,
+                  Icons.app_registration_rounded,
                   size: 100,
                   color: Theme.of(context).colorScheme.inversePrimary,
                 ),

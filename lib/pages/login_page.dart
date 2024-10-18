@@ -1,12 +1,8 @@
-// ignore_for_file: use_build_context_synchronously
-
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:food_delivery/components/my_button.dart';
 import 'package:food_delivery/components/my_textfield.dart';
 import 'package:food_delivery/services/auth/auth_services.dart';
-
-
 
 class LoginPage extends StatefulWidget {
   final void Function()? onTap;
@@ -24,20 +20,46 @@ class _LoginPageState extends State<LoginPage> {
   final emailcontroller = TextEditingController();
   final passwordcontroller = TextEditingController();
 
-  void login() async {
-    // Navigator.push(context, MaterialPageRoute(builder: (context)=> HomePage(),))
+  // RegEx for password validation (1 letter, 1 number, 1 symbol)
+  final RegExp passwordRegEx = RegExp(
+    r'^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$',
+  );
 
+  // Function to check if the password is valid
+  bool isValidPassword(String password) {
+    return passwordRegEx.hasMatch(password);
+  }
+
+  void login() async {
     final _authService = AuthService();
-    //try sign in
+
+    // Check if the password is valid before attempting to sign in
+    if (!isValidPassword(passwordcontroller.text)) {
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: const Text('Invalid Password'),
+          content: const Text(
+              'Password must contain at least 1 letter, 1 number, and 1 symbol.'),
+        ),
+      );
+      return;
+    }
+
+    // Try to sign in if password is valid
     try {
-      await _authService.signInWithEmailPassword(emailcontroller.text, passwordcontroller.text);
+      await _authService.signInWithEmailPassword(
+        emailcontroller.text,
+        passwordcontroller.text,
+      );
     } catch (e) {
-    //display any errors
-       showDialog(
-            context: context,
-            builder: (context) => AlertDialog(
-                  title: Text(e.toString()),
-                ));
+      // Display any errors
+      showDialog(
+        context: context,
+        builder: (context) => AlertDialog(
+          title: Text(e.toString()),
+        ),
+      );
     }
   }
 
@@ -94,7 +116,7 @@ class _LoginPageState extends State<LoginPage> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Text(
-                  'Not a member',
+                  'Not a member?',
                   style: TextStyle(
                     color: Theme.of(context).colorScheme.inversePrimary,
                   ),

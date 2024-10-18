@@ -43,7 +43,7 @@ class _DeliveryProgressPageState extends State<DeliveryProgressPage> {
     return Container(
       height: 100,
       decoration: BoxDecoration(
-        color: Theme.of(context).colorScheme.secondary,
+        color: Colors.red.shade300,
         borderRadius: const BorderRadius.only(
           topLeft: Radius.circular(40),
           topRight: Radius.circular(40),
