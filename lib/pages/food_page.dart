@@ -4,6 +4,8 @@ import 'package:food_delivery/models/food.dart';
 import 'package:food_delivery/models/restaurant.dart';
 import 'package:provider/provider.dart';
 
+import '../models/cart_provider.dart';
+
 class FoodPage extends StatefulWidget {
   final Food food;
   final Map<Addon, bool> selectedAddons = {};
@@ -115,7 +117,10 @@ class _FoodPageState extends State<FoodPage> {
             ),
             MyButton(
               text: 'Add to Cart',
-              onTap: () => addToCart(widget.food, widget.selectedAddons),
+              onTap: () {
+                addToCart(widget.food, widget.selectedAddons);
+                Provider.of<CartProvider>(context, listen: false).addItem();
+              },
             ),
             const SizedBox(height: 25),
           ],

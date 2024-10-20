@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:food_delivery/components/my_button.dart';
 import 'package:food_delivery/components/my_cart_tile.dart';
 import 'package:food_delivery/models/restaurant.dart';
 import 'package:food_delivery/pages/delivery_progress_page.dart';
 import 'package:food_delivery/pages/payment_page.dart';
 import 'package:provider/provider.dart';
+
+import '../models/cart_provider.dart';
 
 class CartPage extends StatelessWidget {
   const CartPage({super.key});
@@ -31,7 +32,9 @@ class CartPage extends StatelessWidget {
                       actions: [
                         //cancel button
                         TextButton(
-                          onPressed: () => Navigator.pop(context),
+                          onPressed: () {
+                            Navigator.pop(context);
+                          },
                           child: const Text('Cancel'),
                         ),
 
@@ -40,6 +43,8 @@ class CartPage extends StatelessWidget {
                           onPressed: () {
                             Navigator.pop(context);
                             restaurant.clearCart();
+                            Provider.of<CartProvider>(context, listen: false)
+                                .removeItem();
                           },
                           child: const Text('Yes'),
                         ),
@@ -47,7 +52,7 @@ class CartPage extends StatelessWidget {
                     ),
                   );
                 },
-                icon: Icon(Icons.delete_sweep),
+                icon: const Icon(Icons.delete_sweep),
               )
             ],
           ),
@@ -60,7 +65,7 @@ class CartPage extends StatelessWidget {
                     userCart.isEmpty
                         ? const Expanded(
                             child: Center(
-                              child: const Text("Cart is empty "),
+                              child: Text("Cart is empty "),
                             ),
                           )
                         : Expanded(
@@ -78,25 +83,71 @@ class CartPage extends StatelessWidget {
               ),
               MyButton(
                 text: 'Pay on delivery',
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const DeliveryProgressPage(),
-                  ),
-                ),
+                onTap: () {
+                  // Check if the cart is empty
+                  if (userCart.isEmpty) {
+                    // Show a dialog box when the cart is empty
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: const Text('No Items'),
+                        content: const Text('There are no items in the cart.'),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context); // Close the dialog
+                            },
+                            child: const Text('OK'),
+                          ),
+                        ],
+                      ),
+                    );
+                  } else {
+                    // Navigate to DeliveryProgressPage when there are items
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const DeliveryProgressPage(),
+                      ),
+                    );
+                  }
+                },
               ),
               const SizedBox(
                 height: 15,
               ),
               //button to pay
               MyButton(
-                text: 'Checkout ',
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const PaymentPage(),
-                  ),
-                ),
+                text: 'Checkout',
+                onTap: () {
+                  // Check if the cart is empty
+                  if (userCart.isEmpty) {
+                    // Show a dialog box when the cart is empty
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: const Text('No Items'),
+                        content: const Text('There are no items in the cart.'),
+                        actions: [
+                          TextButton(
+                            onPressed: () {
+                              Navigator.pop(context); // Close the dialog
+                            },
+                            child: const Text('OK'),
+                          ),
+                        ],
+                      ),
+                    );
+                  } else {
+                    // Navigate to PaymentPage when there are items
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const PaymentPage(),
+                      ),
+                    );
+                  }
+                },
               ),
               const SizedBox(
                 height: 25,

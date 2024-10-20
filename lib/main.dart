@@ -6,6 +6,8 @@ import 'package:food_delivery/services/auth/auth_gate.dart';
 import 'package:food_delivery/themes/theme_provider.dart';
 import 'package:provider/provider.dart';
 
+import 'models/cart_provider.dart';
+
 Future<void> main()  async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(options: DefaultFirebaseOptions.currentPlatform);
@@ -18,6 +20,11 @@ Future<void> main()  async {
       //restaurantProvider
       ChangeNotifierProvider(
         create: (context) => Restaurant(),
+        
+      ),
+      //cartProvider
+      ChangeNotifierProvider(
+      create: (context) => CartProvider(),
       ),
     ],
     child: const MyApp(),

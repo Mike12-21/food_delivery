@@ -60,7 +60,7 @@ class Restaurant extends ChangeNotifier {
       name: 'BBQ Burger',
       description:
           'A smoky BBQ burger featuring a flame-grilled patty, topped with caramelized onions, melted cheddar cheese, and a drizzle of tangy barbecue sauce.',
-      imagePath: 'lib/images/burgers/bbqburger1.png',
+      imagePath: 'lib/images/burgers/bbqburger12.png',
       price: 320,
       category: FoodCategory.Burgers,
       availableAddons: [
@@ -73,7 +73,7 @@ class Restaurant extends ChangeNotifier {
       name: 'Black Forest',
       description:
           'A rich chocolate cake layered with whipped cream, cherries, and dark chocolate shavings.',
-      imagePath: 'lib/images/desserts/blackforest.png',
+      imagePath: 'lib/images/desserts/blackforest1.png',
       price: 100,
       category: FoodCategory.Desserts,
       availableAddons: [
@@ -107,7 +107,7 @@ class Restaurant extends ChangeNotifier {
       name: 'Donut',
       description:
           'A golden, fried ring of dough, often glazed or filled with various sweet toppings or creams.',
-      imagePath: 'lib/images/desserts/donut12.png',
+      imagePath: 'lib/images/desserts/donut123.png',
       price: 70,
       category: FoodCategory.Desserts,
       availableAddons: [
@@ -118,7 +118,7 @@ class Restaurant extends ChangeNotifier {
       name: 'White Forest',
       description:
           'A classic cake with layers of vanilla sponge, whipped cream, cherries, and white chocolate.',
-      imagePath: 'lib/images/desserts/whiteforest.png',
+      imagePath: 'lib/images/desserts/whiteforest1.png',
       price: 150,
       category: FoodCategory.Desserts,
       availableAddons: [
@@ -142,7 +142,7 @@ class Restaurant extends ChangeNotifier {
       name: 'Iced tea',
       description:
           'A chilled tea beverage sweetened and served with ice, offering a refreshing and flavorful drink option.',
-      imagePath: 'lib/images/drinks/iced tea1.png',
+      imagePath: 'lib/images/drinks/iced_tea1.png',
       price: 70,
       category: FoodCategory.Drinks,
       availableAddons: [
@@ -175,7 +175,7 @@ class Restaurant extends ChangeNotifier {
       name: 'Softdrinks',
       description:
           'Carbonated beverages typically sweetened with sugar or artificial sweeteners, offering a wide range of flavors and refreshment.',
-      imagePath: 'lib/images/drinks/softdrinks1.png',
+      imagePath: 'lib/images/drinks/softdrinks12.png',
       price: 45,
       category: FoodCategory.Drinks,
       availableAddons: [
@@ -243,7 +243,7 @@ class Restaurant extends ChangeNotifier {
       name: 'Chopped Salad',
       description:
           'Carbonated beverages typically sweetened with sugar or artificial sweeteners, offering a wide range of flavors and refreshment.',
-      imagePath: 'lib/images/salads/choppedsalad1.png',
+      imagePath: 'lib/images/salads/choppedsalad12.png',
       price: 220,
       category: FoodCategory.Salads,
       availableAddons: [
@@ -276,7 +276,7 @@ class Restaurant extends ChangeNotifier {
       name: 'Pasta Salad',
       description:
           'Carbonated beverages typically sweetened with sugar or artificial sweeteners, offering a wide range of flavors and refreshment.',
-      imagePath: 'lib/images/salads/pastasalad1.png',
+      imagePath: 'lib/images/salads/pastasalad12.png',
       price: 230,
       category: FoodCategory.Salads,
       availableAddons: [
@@ -287,7 +287,7 @@ class Restaurant extends ChangeNotifier {
       name: 'Potato Salad',
       description:
           'Carbonated beverages typically sweetened with sugar or artificial sweeteners, offering a wide range of flavors and refreshment.',
-      imagePath: 'lib/images/salads/potatosalad1.png',
+      imagePath: 'lib/images/salads/potatosalad12.png',
       price: 205,
       category: FoodCategory.Salads,
       availableAddons: [

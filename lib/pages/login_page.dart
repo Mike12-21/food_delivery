@@ -40,7 +40,7 @@ class _LoginPageState extends State<LoginPage> {
         builder: (context) => AlertDialog(
           title: const Text('Invalid Password'),
           content: const Text(
-              'Password must contain at least 1 letter, 1 number, and 1 symbol.'),
+              'Password must contain at least 1 letter, 1 number, and 1 symbol. The length of password must not be less than 8'),
         ),
       );
       return;
